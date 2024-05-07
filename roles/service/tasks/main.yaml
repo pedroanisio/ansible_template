@@ -1,0 +1,17 @@
+---
+- name: Simple task
+  ansible.builtin.stat:
+    path: "/etc/passwd"
+  register: passwd_file
+
+- name: Simple check
+  debug:
+    msg: "File does not exist, update needed."
+  when: not passwd_file.stat.exists
+  notify: call echo
+
+# Include tasks from an external file
+- name: External task
+  import_tasks: external.yaml
+  tags: 
+    - setup    

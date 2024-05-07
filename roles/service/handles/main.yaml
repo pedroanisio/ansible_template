@@ -1,0 +1,2 @@
+- name: call echo
+  ansible.builtin.shell: echo "Hello World"

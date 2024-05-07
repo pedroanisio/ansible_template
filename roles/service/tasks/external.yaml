@@ -1,0 +1,4 @@
+---
+- name: Simple external
+  debug:
+    msg: "External called"
